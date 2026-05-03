@@ -1,0 +1,26 @@
+name,section,units,required_expertise,days,start_time,end_time
+Programming Fundamentals,BSIT-1A,3,Programming;Data Structures,M,07:30,10:30
+Programming Fundamentals,BSIT-1B,3,Programming;Data Structures,T,07:30,10:30
+Data Structures and Algorithms,BSIT-2A,3,Programming;Data Structures,W,07:30,10:30
+Data Structures and Algorithms,BSIT-2B,3,Programming;Data Structures,Th,07:30,10:30
+Web Development,BSIT-2A,3,Web Technologies;Frontend;Backend,M,13:00,16:00
+Web Development,BSCS-2B,3,Web Technologies;Frontend;Backend,W,13:00,16:00
+Mobile Application Development,BSIT-3A,3,Mobile Development;Android,T,13:00,16:00
+Mobile Application Development,BSCS-3B,3,Mobile Development;Android,Th,13:00,16:00
+Networking Fundamentals,BSIT-2A,3,Networking;Cybersecurity,F,07:30,10:30
+Cybersecurity,BSIT-3B,3,Networking;Cybersecurity,M,10:30,13:30
+Operating Systems,BSCS-2A,3,Operating Systems;C,T,10:30,13:30
+Operating Systems,BSIT-2B,3,Operating Systems;C,Th,10:30,13:30
+Artificial Intelligence,BSCS-3A,3,Artificial Intelligence;Python,W,10:30,13:30
+Machine Learning,BSCS-4A,3,Artificial Intelligence;Python,F,10:30,13:30
+Database Management Systems,BSIT-2A,3,Database Management;SQL,M,07:30,10:30
+Database Management Systems,BSCS-2B,3,Database Management;SQL,W,07:30,10:30
+Software Engineering,BSIT-3A,3,Software Engineering;Project Management,T,07:30,10:30
+Software Engineering,BSCS-3B,3,Software Engineering;Project Management,Th,07:30,10:30
+Digital Logic Design,BSCS-1A,3,Digital Logic;Computer Architecture,F,13:00,16:00
+Computer Architecture,BSCS-2A,3,Digital Logic;Computer Architecture,M,13:00,16:00
+UI/UX Design,BSIT-3A,3,UX Design;Graphics,T,13:00,16:00
+Graphic Design Fundamentals,BSIT-1B,3,UX Design;Graphics,Th,13:00,16:00
+Physical Education 1,BSIT-1A,2,Physical Education,S,07:00,09:00
+Physical Education 1,BSCS-1A,2,Physical Education,S,09:00,11:00
+Physical Education 2,BSIT-2A,2,Physical Education,S,11:00,13:00

@@ -1,0 +1,11 @@
+name,email,password,expertise,max_units
+Juan Dela Cruz,juan.delacruz@example.com,Teacher@123,Programming;Data Structures,12
+Maria Clara,maria.clara@example.com,Teacher@123,Web Technologies;Frontend,12
+Jose Rizal,jose.rizal@example.com,Teacher@123,Mobile Development;Android,12
+Andres Bonifacio,andres.bonifacio@example.com,Teacher@123,Networking;Cybersecurity,12
+Emilio Aguinaldo,emilio.aguinaldo@example.com,Teacher@123,Operating Systems;C,12
+Melchora Aquino,melchora.aquino@example.com,Teacher@123,Artificial Intelligence;Python,12
+Gregorio del Pilar,gregorio.delpilar@example.com,Teacher@123,Database Management;SQL,12
+Antonio Luna,antonio.luna@example.com,Teacher@123,Software Engineering;Project Management,12
+Apolinario Mabini,apolinario.mabini@example.com,Teacher@123,Digital Logic;Computer Architecture,12
+Gabriela Silang,gabriela.silang@example.com,Teacher@123,UX Design;Graphics,12

@@ -1,0 +1,11 @@
+name,units,required_expertise,days,start_time,end_time
+Introduction to Programming,3,Programming;Logic,MW,09:00,10:30
+Data Structures and Algorithms,3,Programming;Data Structures,TTH,10:30,12:00
+Database Management Systems,3,Databases;SQL,M,13:00,16:00
+Web Development,3,Web Technologies;Frontend;Backend,W,13:00,16:00
+Artificial Intelligence,3,AI;Machine Learning;Python,F,09:00,12:00
+Computer Networks,3,Networking;Cisco;Infrastructure,TTH,14:00,15:30
+Software Engineering,3,Project Management;System Analysis,MW,14:00,15:30
+Mobile App Development,3,Mobile;Android;iOS,F,13:00,16:00
+Operating Systems,3,OS;Linux;Kernel,M,08:00,11:00
+Digital Signal Processing,3,Signal Processing;Mathematics,TTH,08:00,09:30

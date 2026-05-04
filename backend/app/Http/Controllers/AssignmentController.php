@@ -358,6 +358,9 @@ class AssignmentController extends Controller
         } elseif ($request->type === 'FACULTY') {
             $teacher = Teacher::onlyTrashed()->findOrFail($request->id);
             $teacher->restore();
+            if ($teacher->user_id) {
+                \App\Models\User::onlyTrashed()->where('id', $teacher->user_id)->restore();
+            }
             ActivityLog::create([
                 'user_id' => $request->user()->id,
                 'action' => 'Restored',
@@ -391,7 +394,12 @@ class AssignmentController extends Controller
                 ->where('deleted_at', $request->deleted_at)
                 ->forceDelete();
         } elseif ($request->type === 'FACULTY') {
-            Teacher::onlyTrashed()->findOrFail($request->id)->forceDelete();
+            $teacher = Teacher::onlyTrashed()->findOrFail($request->id);
+            $userId = $teacher->user_id;
+            $teacher->forceDelete();
+            if ($userId) {
+                \App\Models\User::onlyTrashed()->where('id', $userId)->forceDelete();
+            }
         } elseif ($request->type === 'CURRICULUM') {
             Subject::onlyTrashed()->findOrFail($request->id)->forceDelete();
         }

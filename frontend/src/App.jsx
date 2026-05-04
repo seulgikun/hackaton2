@@ -740,7 +740,7 @@ function AdminDashboard() {
                       </td>
                       <td>{t.max_units} Units</td>
                       <td style={{ display: 'flex', gap: '0.75rem', justifyContent: 'flex-end' }}>
-                        <Edit2 size={18} style={{ cursor: 'pointer', color: 'var(--accent-blue)', opacity: 0.7 }} onClick={() => { setEditingTeacher(t); setNewTeacher({ name: t.name, email: t.user?.email || '', expertise: (t.expertise || []).join('; '), max_units: t.max_units }); setShowAddTeacher(true); }} />
+                        <Edit2 size={18} style={{ cursor: 'pointer', color: 'var(--accent-blue)', opacity: 0.7 }} onClick={() => { setEditingTeacher(t); setNewTeacher({ name: t.name || '', email: t.user?.email || '', expertise: (t.expertise || []).join('; '), max_units: t.max_units || 12, password: '' }); setShowAddTeacher(true); }} />
                         <Trash2 size={18} style={{ cursor: 'pointer', color: 'var(--accent-rose)', opacity: 0.7 }} onClick={() => deleteTeacher(t.id)} />
                       </td>
                     </tr>
@@ -971,7 +971,7 @@ function AdminDashboard() {
               <input placeholder="Email (for login)" value={newTeacher.email} onChange={e => setNewTeacher({ ...newTeacher, email: e.target.value })} />
               <div style={{ position: 'relative' }}>
                 <input 
-                  placeholder={editingTeacher ? "New Password (leave blank to keep current)" : "Password"} 
+                  placeholder={editingTeacher ? "New Password (leave blank for Teacher123)" : "Password (default: Teacher123)"} 
                   type={showNewTeacherPassword ? "text" : "password"} 
                   style={{ width: '100%' }}
                   value={newTeacher.password}

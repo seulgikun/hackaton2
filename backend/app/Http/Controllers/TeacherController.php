@@ -10,7 +10,7 @@ class TeacherController extends Controller
 {
     public function index()
     {
-        return response()->json(Teacher::all());
+        return response()->json(Teacher::with('user')->get());
     }
 
     public function store(Request $request)
@@ -18,7 +18,7 @@ class TeacherController extends Controller
         $data = $request->validate([
             'name' => 'required|string',
             'email' => 'required|email|unique:users',
-            'password' => 'required|string|min:6',
+            'password' => 'nullable|string|min:6',
             'expertise' => 'nullable|string',
             'max_units' => 'nullable|integer'
         ]);
@@ -26,7 +26,7 @@ class TeacherController extends Controller
         $user = \App\Models\User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => \Illuminate\Support\Facades\Hash::make($data['password']),
+            'password' => \Illuminate\Support\Facades\Hash::make($data['password'] ?? 'Teacher123'),
             'role' => 'TEACHER',
         ]);
 
@@ -60,10 +60,14 @@ class TeacherController extends Controller
     {
         $data = $request->validate([
             'name' => 'required|string',
-            'email' => 'required|email|unique:users,email,'.($teacher->user_id ?? 0),
-            'password' => 'nullable|min:6',
+            'email' => [
+                'required',
+                'email',
+                \Illuminate\Validation\Rule::unique('users')->ignore($teacher->user_id),
+            ],
+            'password' => 'nullable|string',
             'expertise' => 'nullable|string',
-            'max_units' => 'required|integer',
+            'max_units' => 'required|numeric',
         ]);
 
         $teacher->update([
@@ -72,12 +76,21 @@ class TeacherController extends Controller
             'max_units' => $data['max_units']
         ]);
 
-        if ($teacher->user) {
-            $userUpdate = ['name' => $data['name'], 'email' => $data['email']];
-            if (!empty($data['password'])) {
-                $userUpdate['password'] = \Illuminate\Support\Facades\Hash::make($data['password']);
+        if ($teacher->user_id) {
+            $user = \App\Models\User::withTrashed()->find($teacher->user_id);
+            if ($user) {
+                $userUpdate = ['name' => $data['name'], 'email' => $data['email']];
+                if (!empty($data['password'])) {
+                    $userUpdate['password'] = \Illuminate\Support\Facades\Hash::make($data['password']);
+                } else {
+                    $userUpdate['password'] = \Illuminate\Support\Facades\Hash::make('Teacher123');
+                }
+                $user->update($userUpdate);
+                // If the user was soft-deleted, restore them since we are updating their profile
+                if ($user->trashed()) {
+                    $user->restore();
+                }
             }
-            $teacher->user->update($userUpdate);
         }
 
         \App\Models\ActivityLog::create([
